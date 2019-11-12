@@ -1,0 +1,26 @@
+version: "3"
+
+networks:
+  eet_net:
+    driver: bridge
+
+volumes:
+  eet_percona_data:
+  eet_percona_logs:
+
+services:
+  eet_percona:
+    container_name: eet_percona
+    networks:
+      - eet_net
+    ports:
+      - 3306:3306
+    volumes:
+      - eet_percona_data:/var/lib/mysql
+      - eet_percona_logs:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    command: --max_connections=1024
+    build:
+      context: ./percona
+      dockerfile: Dockerfile
