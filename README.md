@@ -1,6 +1,6 @@
 # ecto_enum_t
 
-Test project to ecto_enum PR
+Test project to ecto_enum PR: support loading of fields declared as ENUM type in mysql.
 
 cd local_env && docker-compose -f docker-compose-services.yaml up -d && cd ..
 
