@@ -4,9 +4,10 @@ Test project to ecto_enum PR: support loading of fields declared as ENUM type in
 
 cd local_env && docker-compose -f docker-compose-services.yaml up -d && cd ..
 
-mix ecto.create && mix ecto.migrate
+mix deps.get && mix ecto.create && mix ecto.migrate
 
-```iex -S mix
+iex -S mix
+```
 
 iex(1)> EET.Repo.insert(%EET.XMPP.States{xstate: :to})
 {:ok, ...}
